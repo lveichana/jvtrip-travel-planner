@@ -1,0 +1,36 @@
+// src/App.jsx
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Dashboard from './pages/Dashboard';
+import AllTrips from './pages/AllTrips';
+import PlanTrip from './pages/PlanTrip';
+import AddDestination from './pages/AddDestination';
+import TripDetail from './pages/TripDetail';
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        {/* Dashboard */}
+        <Route path="/" element={<Dashboard />} />
+        
+        {/* Add Destination */}
+        <Route path="/add-destination" element={<AddDestination />} />
+        
+        {/* View All Trips by Category */}
+        <Route path="/trips/:category" element={<AllTrips />} />
+        
+        {/* Trip Detail (View Mode) */}
+        <Route path="/trip/:id" element={<TripDetail />} />
+        
+        {/* Plan/Edit Trip */}
+        <Route path="/plan-trip/:id" element={<PlanTrip />} />
+        
+        {/* Fallback - 404 */}
+        <Route path="*" element={<Dashboard />} />
+      </Routes>
+    </Router>
+  );
+}
+
+export default App;
